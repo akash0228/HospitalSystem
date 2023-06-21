@@ -52,9 +52,21 @@ module.exports.matchtoken=(id,token,callback)=>{
     console.log(query);
 };
 
+
 module.exports.updateverify=(email,email_status,callback)=>{
-   const query="UPDATE INTO `users` SET `email_status`='"+email_status+"' WHERE `email`='"+email+"' ";
-   con.query(query,callback);
-   console.log(query);
+    const query="UPDATE INTO `users` SET `email_status`='"+email_status+"' WHERE `email`='"+email+"' ";
+    con.query(query,callback);
+    console.log(query);
 };
 
+module.exports.findOne=(email,callback)=>{
+    const query="SELECT * FROM users WHERE email='"+email+"' "; 
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.temp=(id,email,token,callback)=>{
+    const query="INSERT INTO `temp` (`email`,`id`,`token`) VALUES ('"+email+"','"+id+"','"+token+"')";
+    con.query(query,callback);
+    console.log(query);
+};
