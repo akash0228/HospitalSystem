@@ -70,3 +70,48 @@ module.exports.temp=(id,email,token,callback)=>{
     con.query(query,callback);
     console.log(query);
 };
+
+module.exports.add_doctor=(first_name,last_name,email,dob,gender,address,phone,image,department,biography,callback)=>{
+    const query="INSERT INTO `doctor` (`first_name`,`last_name`,`email`,`dob`,`gender`,`address`,`phone`,`image`,`department`,`biography`) VALUES ('"+first_name+"','"+last_name+"','"+email+"','"+dob+"','"+gender+"','"+address+"','"+phone+"','"+image+"','"+department+"','"+biography+"')";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.getAllDoc=(callback)=>{
+    const query="SELECT * FROM doctor"
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.getDocById=(id,callback)=>{
+    const query="SELECT * FROM doctor WHERE id='"+id+"' ";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.editDoctor=(first_name,last_name,email,dob,gender,address,phone,department,biography,id,callback)=>{
+    const query="UPDATE `doctor` SET `first_name`='"+first_name+"',`last_name`='"+last_name+"',`email`='"+email+"',`dob`='"+dob+"',`gender`='"+gender+"',`address`='"+address+"',`phone`='"+phone+"',`department`='"+department+"',`biography`='"+biography+"' WHERE id='"+id+"' ";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.deleteDoc=(id,callback)=>{
+    const query="DELETE FROM doctor WHERE id='"+id+"' ";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.searchDoc=(key,callback)=>{
+    const query="SELECT  FROM doctor WHERE first_name like "%"'"+key+"'"%" ";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.getalldept=(callback)=>{
+    const query="SELECT * FROM departments"
+    con.query(query,callback);
+    console.log(query);
+};
+
+
+

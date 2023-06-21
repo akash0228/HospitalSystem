@@ -16,6 +16,8 @@ const signup=require('./controllers/signup');
 const login=require("./controllers/login");
 const verify=require('./controllers/verify');
 const reset=require('./controllers/reset_controller');
+const doctors=require('./controllers/doc_controller');
+const employee=require('./controllers/employee');
 
 const app=express();
 
@@ -37,3 +39,5 @@ app.use('/signup',signup);
 app.use('/login',login);
 app.use('/verify',verify);
 app.use('/reset',reset);
+app.use('/doctor',doctors);
+app.use('/employee',employee);
