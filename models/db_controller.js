@@ -179,3 +179,32 @@ module.exports.searchEmp=(key,callback)=>{
     console.log(query);
 };
 
+module.exports.getAllAppointment=(callback)=>{
+    const query="SELECT * FROM appointment"
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.add_appointment=(p_name,department,d_name,date,time,email,phone,callback)=>{
+    const query="INSERT INTO `appointment` (`patient_name`,`department`,`doctor_name`,`date`,`time`,`email`,`phone`) VALUES ('"+p_name+"','"+department+"','"+d_name+"','"+date+"','"+time+"','"+email+"','"+phone+"')";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.getAppointmentById=(id,callback)=>{
+    const query="SELECT * FROM appointment WHERE id='"+id+"' ";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.editAppointment=(id,p_name,department,d_name,date,time,email,phone,callback)=>{
+    const query="UPDATE `employee` SET `patient_name`='"+p_name+"',`email`='"+email+"',`phone`='"+phone+"',`date`='"+date+"',`department`='"+department+"',`doctor_name`='"+d_name+"',`time`='"+time+"' WHERE id='"+id+"' ";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.deleteAppointment=(id,callback)=>{
+    const query="DELETE FROM appointment WHERE id='"+id+"' ";
+    con.query(query,callback);
+    console.log(query);
+};
