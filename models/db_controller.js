@@ -113,5 +113,69 @@ module.exports.getalldept=(callback)=>{
     console.log(query);
 };
 
+module.exports.getleavebyid=(id,callback)=>{
+    const query="SELECT * FROM leaves WHERE id='"+id+"' ";
+    con.query(query,callback);
+    console.log(query);
+};
 
+module.exports.add_leave=(id,name,type,from,to,reason,callback)=>{
+    const query="INSERT INTO `leaves` (`emp_id`,`employee`,`leave_type`,`date_from`,`date_to`,`reason`) VALUES ('"+id+"','"+name+"','"+type+"','"+from+"','"+to+"','"+reason+"')";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.deleteleave=(id,callback)=>{
+    const query="DELETE FROM leaves WHERE id='"+id+"' ";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.deleteEmp=(id,callback)=>{
+    const query="DELETE FROM employee WHERE id='"+id+"' ";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.getAllEmployee=(callback)=>{
+    const query="SELECT * FROM employee"
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.add_employee=(name,email,contact,join_date,role,salary,callback)=>{
+    const query="INSERT INTO `employee` (`name`,`email`,`contact`,`join_date`,`role`,`salary`) VALUES ('"+name+"','"+email+"','"+contact+"','"+join_date+"','"+role+"','"+salary+"')";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.getAllLeave=(callback)=>{
+    const query="SELECT * FROM leaves"
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.editleave=(id,name,leave_type,from,to,reason,callback)=>{
+    const query="UPDATE `leaves` SET `employee`='"+name+"',`leave_type`='"+leave_type+"',`date_from`='"+from+"',`date_to`='"+to+"',`reason`='"+reason+"' WHERE emp_id='"+id+"' ";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.getEmpbyId=(id,callback)=>{
+    const query="SELECT * FROM employee WHERE id='"+id+"' ";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.editEmp=(id,name,email,contact,join_date,role,salary,callback)=>{
+    const query="UPDATE `employee` SET `name`='"+name+"',`email`='"+email+"',`contact`='"+contact+"',`join_date`='"+join_date+"',`role`='"+role+"',`salary`='"+salary+"' WHERE id='"+id+"' ";
+    con.query(query,callback);
+    console.log(query);
+};
+
+module.exports.searchEmp=(key,callback)=>{
+    const query="SELECT  FROM employee WHERE name like "%"'"+key+"'"%" ";
+    con.query(query,callback);
+    console.log(query);
+};
 

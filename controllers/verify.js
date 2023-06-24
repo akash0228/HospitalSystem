@@ -27,7 +27,7 @@ router.post('/',(req,res)=>{
                 res.send("Email verified");
             })
         }else{
-            res.send("Tokean did not match");
+            res.send("Token did not match");
         }
      })
 })
